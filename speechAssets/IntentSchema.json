@@ -1,0 +1,13 @@
+{
+  "intents": [
+  {
+    "intent": "CurrentScheduleIntent"
+  },
+  {
+    "intent": "NextScheduleIntent"
+  },
+  {
+    "intent": "AMAZON.HelpIntent"
+  }
+]
+}

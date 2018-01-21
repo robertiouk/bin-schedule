@@ -1,0 +1,29 @@
+CurrentScheduleIntent what's the current bin schedule
+CurrentScheduleIntent what is the current bin schedule
+CurrentScheduleIntent what's the current bin cycle
+CurrentScheduleIntent what is the current bin cycle
+CurrentScheduleIntent what's the current bin schedule
+CurrentScheduleIntent what is the current bin schedule
+CurrentScheduleIntent what bin collection is this week
+CurrentScheduleIntent what is this weeks bin collection
+CurrentScheduleIntent what is this weeks bin schedule
+CurrentScheduleIntent what is this weeks bin cycle
+CurrentScheduleIntent this weeks bin collection
+CurrentScheduleIntent this weeks bin cycle
+CurrentScheduleIntent this weeks bin schedule
+CurrentScheduleIntent for this week
+
+NextScheduleIntent what's the next bin schedule
+NextScheduleIntent what is the next bin schedule
+NextScheduleIntent what's the next bin cycle
+NextScheduleIntent what is the next bin cycle
+NextScheduleIntent what's the next bin schedule
+NextScheduleIntent what is the next bin schedule
+NextScheduleIntent what bin collection is next week
+NextScheduleIntent what is next weeks bin collection
+NextScheduleIntent what is next weeks bin schedule
+NextScheduleIntent what is next weeks bin cycle
+NextScheduleIntent next weeks bin collection
+NextScheduleIntent next weeks bin cycle
+NextScheduleIntent next weeks bin schedule
+NextScheduleIntent for next week
