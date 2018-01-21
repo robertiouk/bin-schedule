@@ -106,7 +106,7 @@ public class BinDaySpeechlet implements SpeechletV2, ScheduleToSpeechCalculator 
      * @return SpeechletResponse spoken and visual response for the given intent
      */
     private SpeechletResponse getHelpResponse() {
-        final String speechText = "You can ask what is this weeks bin collection?";
+        final String speechText = "You can ask, what is this weeks bin collection?";
         return SpeechHelper.getAskResponse(CARD_TITLE, speechText);
     }
 
