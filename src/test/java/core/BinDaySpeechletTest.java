@@ -19,7 +19,7 @@ public class BinDaySpeechletTest {
         assertEquals(expected, speechlet.getBinScheduleText(ZonedDateTime.of(2018, 1, 15, 20, 42, 30, 0, ZoneId.of("GMT"))));
 
         expected = "This weeks collection was on Tuesday and was Recycling and Garden";
-        assertEquals(expected, speechlet.getBinScheduleText(ZonedDateTime.of(2018, 10, 17, 9, 0, 0, 0, ZoneId.of("GMT"))));
+        assertEquals(expected, speechlet.getBinScheduleText(ZonedDateTime.of(2019, 10, 17, 9, 0, 0, 0, ZoneId.of("GMT"))));
     }
 
     @Test
@@ -27,6 +27,6 @@ public class BinDaySpeechletTest {
         final BinDaySpeechlet speechlet = new BinDaySpeechlet();
 
         String expected = "Next weeks collection will be on Tuesday and will be Recycling";
-        assertEquals(expected, speechlet.getNextBinScheduleText(ZonedDateTime.of(2018, 1, 20, 20, 42, 30, 0, ZoneId.of("GMT"))));
+        assertEquals(expected, speechlet.getNextBinScheduleText(ZonedDateTime.of(2019, 1, 20, 20, 42, 30, 0, ZoneId.of("GMT"))));
     }
 }
