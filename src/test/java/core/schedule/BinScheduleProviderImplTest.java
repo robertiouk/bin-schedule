@@ -64,6 +64,8 @@ public class BinScheduleProviderImplTest {
 
         BinSchedule schedule = scheduleProvider.getCurrentBinSchedule(ZonedDateTime.of(2018, 12, 25, 9, 0, 0, 0, ZoneId.of("GMT")));
         assertEquals(DayOfWeek.THURSDAY, schedule.getCollectionDate().getDayOfWeek());
+        assertEquals(1, schedule.getCollectionType().size());
+        assertTrue(schedule.getCollectionType().contains(CollectionType.Recycling));
 
         schedule = scheduleProvider.getCurrentBinSchedule(ZonedDateTime.of(2018, 12, 25, 9, 0, 0, 0, ZoneId.of("GMT")));
         assertEquals(DayOfWeek.THURSDAY, schedule.getCollectionDate().getDayOfWeek());

@@ -5,4 +5,4 @@ gradle
 output
 gradlew
 gradlew.bat
-*.class
+.class

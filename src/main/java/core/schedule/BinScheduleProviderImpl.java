@@ -51,7 +51,7 @@ public class BinScheduleProviderImpl implements BinScheduleProvider {
 
         final ZonedDateTime collectionDate = pivotDate.minus(dayOffset, ChronoUnit.DAYS);
 
-        ZonedDateTime calcDate = FIRST_RUBBISH;
+        ZonedDateTime calcDate = FIRST_RUBBISH.plus(collectionDate.getDayOfWeek().getValue()-FIRST_RUBBISH.getDayOfWeek().getValue(), ChronoUnit.DAYS);
         boolean isRubbish = true;
         boolean isRecycling = false;
         boolean isGarden = false;
