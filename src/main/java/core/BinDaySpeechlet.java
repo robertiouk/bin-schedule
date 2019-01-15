@@ -156,6 +156,7 @@ public class BinDaySpeechlet implements SpeechletV2, ScheduleToSpeechCalculator 
         final String dayOfWeek = day.getDisplayName(TextStyle.FULL, LOCALE);
 
         final String collectionTypes = binSchedule.getCollectionType().stream()
+                .sorted()
                 .map(Object::toString)
                 .collect(Collectors.joining(" and "));
         return String.format("This weeks collection %s on %s and %s %s",
