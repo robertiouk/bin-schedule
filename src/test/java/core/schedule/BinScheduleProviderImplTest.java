@@ -59,22 +59,33 @@ public class BinScheduleProviderImplTest {
     }
 
     @Test
+    public void testSpecificNextDate() {
+        final BinScheduleProviderImpl scheduleProvider = new BinScheduleProviderImpl();
+
+        BinSchedule schedule = scheduleProvider.getNextBinSchedule(ZonedDateTime.of(2019, 12, 21, 18, 11, 0, 0, ZoneId.of("Z")));
+        assertEquals(DayOfWeek.TUESDAY, schedule.getCollectionDate().getDayOfWeek());
+        assertEquals(1, schedule.getCollectionType().size());
+        assertTrue(schedule.getCollectionType().contains(CollectionType.Recycling));
+    }
+
+    @Test
     public void testExceptionDates() {
         final BinScheduleProviderImpl scheduleProvider = new BinScheduleProviderImpl();
 
-        BinSchedule schedule = scheduleProvider.getCurrentBinSchedule(ZonedDateTime.of(2018, 12, 25, 9, 0, 0, 0, ZoneId.of("GMT")));
+        BinSchedule schedule = scheduleProvider.getCurrentBinSchedule(ZonedDateTime.of(2019, 12, 31, 9, 0, 0, 0, ZoneId.of("GMT")));
         assertEquals(DayOfWeek.THURSDAY, schedule.getCollectionDate().getDayOfWeek());
         assertEquals(1, schedule.getCollectionType().size());
-        assertTrue(schedule.getCollectionType().contains(CollectionType.Recycling));
+        assertTrue(schedule.getCollectionType().contains(CollectionType.GeneralRubbish));
 
-        schedule = scheduleProvider.getCurrentBinSchedule(ZonedDateTime.of(2018, 12, 25, 9, 0, 0, 0, ZoneId.of("GMT")));
+        schedule = scheduleProvider.getCurrentBinSchedule(ZonedDateTime.of(2019, 12, 31, 9, 0, 0, 0, ZoneId.of("GMT")));
         assertEquals(DayOfWeek.THURSDAY, schedule.getCollectionDate().getDayOfWeek());
+        assertEquals(1, schedule.getCollectionType().size());
+        assertTrue(schedule.getCollectionType().contains(CollectionType.GeneralRubbish));
 
-        schedule = scheduleProvider.getCurrentBinSchedule(ZonedDateTime.of(2019, 1, 1, 9, 0, 0, 0, ZoneId.of("GMT")));
-        assertEquals(DayOfWeek.THURSDAY, schedule.getCollectionDate().getDayOfWeek());
-
-        schedule = scheduleProvider.getCurrentBinSchedule(ZonedDateTime.of(2019, 1, 8, 9, 0, 0, 0, ZoneId.of("GMT")));
+        schedule = scheduleProvider.getCurrentBinSchedule(ZonedDateTime.of(2020, 1, 7, 9, 0, 0, 0, ZoneId.of("GMT")));
         assertEquals(DayOfWeek.WEDNESDAY, schedule.getCollectionDate().getDayOfWeek());
+        assertEquals(1, schedule.getCollectionType().size());
+        assertTrue(schedule.getCollectionType().contains(CollectionType.Recycling));
     }
 
     @Test
@@ -89,7 +100,7 @@ public class BinScheduleProviderImplTest {
         assertEquals(1, actual.getCollectionType().size());
         assertEquals(CollectionType.Recycling, actual.getCollectionType().stream().findFirst().get());
 
-        actual = scheduleProvider.getNextBinSchedule(ZonedDateTime.of(2019, 3, 1, 9, 0, 0, 0, ZoneId.of("GMT")));
+        actual = scheduleProvider.getNextBinSchedule(ZonedDateTime.of(2020, 3, 1, 9, 0, 0, 0, ZoneId.of("GMT")));
         assertEquals(2, actual.getCollectionType().size());
         assertTrue(actual.getCollectionType().contains(CollectionType.Recycling));
         assertTrue(actual.getCollectionType().contains(CollectionType.Garden));

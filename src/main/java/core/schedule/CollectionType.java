@@ -19,7 +19,6 @@ public enum CollectionType {
         this.speechName = speechName;
     }
 
-    /** {@inheritDoc} */
     @Override
     public String toString() {
         return speechName;

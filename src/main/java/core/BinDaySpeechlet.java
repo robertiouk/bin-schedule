@@ -39,7 +39,6 @@ public class BinDaySpeechlet implements SpeechletV2, ScheduleToSpeechCalculator 
         scheduleProvider = new BinScheduleProviderImpl();
     }
 
-    /** {@inheritDoc} */
     @Override
     public void onSessionStarted(final SpeechletRequestEnvelope<SessionStartedRequest> requestEnvelope) {
         LOG.info("onSessionStarted requestId={}, sessionId={}", requestEnvelope.getRequest().getRequestId(),
@@ -48,8 +47,6 @@ public class BinDaySpeechlet implements SpeechletV2, ScheduleToSpeechCalculator 
         intentMap.put("CurrentScheduleIntent", this::getCurrentBinSchedule);
         intentMap.put("NextScheduleIntent", this::getNextBinSchedule);
     }
-
-    /** {@inheritDoc} */
     @Override
     public SpeechletResponse onLaunch(final SpeechletRequestEnvelope<LaunchRequest> requestEnvelope) {
         LOG.info("onLaunch requestId={}, sessionId={}", requestEnvelope.getRequest().getRequestId(),
@@ -57,7 +54,7 @@ public class BinDaySpeechlet implements SpeechletV2, ScheduleToSpeechCalculator 
         return getWelcomeResponse();
     }
 
-    /** {@inheritDoc} */
+
     @Override
     public SpeechletResponse onIntent(final SpeechletRequestEnvelope<IntentRequest> requestEnvelope) {
         final IntentRequest request = requestEnvelope.getRequest();
@@ -77,7 +74,6 @@ public class BinDaySpeechlet implements SpeechletV2, ScheduleToSpeechCalculator 
         }
     }
 
-    /** {@inheritDoc} */
     @Override
     public void onSessionEnded(final SpeechletRequestEnvelope<SessionEndedRequest> requestEnvelope) {
         LOG.info("onSessionEnded requestId={}, sessionId={}", requestEnvelope.getRequest().getRequestId(),
@@ -113,7 +109,6 @@ public class BinDaySpeechlet implements SpeechletV2, ScheduleToSpeechCalculator 
     private SpeechletResponse getCurrentBinSchedule()
     {
         final String speechText = getBinScheduleText(ZonedDateTime.now());
-
         // Create the Simple card content.
         SimpleCard card = SpeechHelper.getSimpleCard(CARD_TITLE, speechText);
 
@@ -126,7 +121,6 @@ public class BinDaySpeechlet implements SpeechletV2, ScheduleToSpeechCalculator 
     private SpeechletResponse getNextBinSchedule()
     {
         final String speechText = getNextBinScheduleText(ZonedDateTime.now());
-
         // Create the Simple card content.
         SimpleCard card = SpeechHelper.getSimpleCard(CARD_TITLE, speechText);
 
@@ -136,7 +130,6 @@ public class BinDaySpeechlet implements SpeechletV2, ScheduleToSpeechCalculator 
         return SpeechletResponse.newTellResponse(speech, card);
     }
 
-    /** {@inheritDoc} */
     @Override
     public String getBinScheduleText(final ZonedDateTime today) {
         final BinSchedule binSchedule = scheduleProvider.getCurrentBinSchedule(today);
@@ -166,7 +159,6 @@ public class BinDaySpeechlet implements SpeechletV2, ScheduleToSpeechCalculator 
                 collectionTypes);
     }
 
-    /** {@inheritDoc} */
     @Override
     public String getNextBinScheduleText(final ZonedDateTime today) {
         final BinSchedule binSchedule = scheduleProvider.getNextBinSchedule(today);
