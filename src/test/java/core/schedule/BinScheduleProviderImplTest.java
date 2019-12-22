@@ -59,13 +59,13 @@ public class BinScheduleProviderImplTest {
     }
 
     @Test
-    public void testSpecificNextDate() {
+    public void testFirstDayOfWeekUk() {
         final BinScheduleProviderImpl scheduleProvider = new BinScheduleProviderImpl();
 
-        BinSchedule schedule = scheduleProvider.getNextBinSchedule(ZonedDateTime.of(2019, 12, 21, 18, 11, 0, 0, ZoneId.of("Z")));
+        BinSchedule schedule = scheduleProvider.getCurrentBinSchedule(ZonedDateTime.of(2019, 12, 22, 18, 11, 0, 0, ZoneId.of("Z")));
         assertEquals(DayOfWeek.TUESDAY, schedule.getCollectionDate().getDayOfWeek());
         assertEquals(1, schedule.getCollectionType().size());
-        assertTrue(schedule.getCollectionType().contains(CollectionType.Recycling));
+        assertTrue(schedule.getCollectionType().contains(CollectionType.GeneralRubbish));
     }
 
     @Test

@@ -47,7 +47,7 @@ public class BinScheduleProviderImpl implements BinScheduleProvider {
     private BinSchedule getScheduleForWeek(final ZonedDateTime pivotDate) {
         System.out.println("Getting the schedule for week " + pivotDate);
         // Get the collection day for given week
-        final TemporalField weekOfYear = WeekFields.of(Locale.ENGLISH).weekOfWeekBasedYear();
+        final TemporalField weekOfYear = WeekFields.of(Locale.UK).weekOfWeekBasedYear();
         final int givenWeek = pivotDate.get(weekOfYear);
         final DayOfWeek dayOfWeek = exceptionDates.stream()
                 .filter(d -> d.get(weekOfYear) == givenWeek)
